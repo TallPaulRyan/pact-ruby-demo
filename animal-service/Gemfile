@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 group :development, :test do
   gem 'rspec'
-  gem 'pact', path: '../../'
-  gem 'pry'
+  gem 'pact'
+  gem "pry-byebug"
 end
 
 gem 'rake'

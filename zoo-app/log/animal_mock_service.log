@@ -1,0 +1,137 @@
+I, [2023-01-25T20:38:12.285224 #172]  INFO -- : Cleared interactions for example "ZooApp::AnimalServiceClient.find_alligator_by_name when an alligator by the given name exists returns the alligator"
+I, [2023-01-25T20:38:12.286834 #172]  INFO -- : Registered expected interaction GET /alligators/Mary
+D, [2023-01-25T20:38:12.288001 #172] DEBUG -- : {
+  "description": "a request for an alligator",
+  "providerState": "there is an alligator named Mary",
+  "request": {
+    "method": "get",
+    "path": "/alligators/Mary",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json;charset=utf-8"
+    },
+    "body": {
+      "name": "Mary"
+    }
+  },
+  "metadata": null
+}
+I, [2023-01-25T20:38:12.289381 #172]  INFO -- : Received request GET /alligators/Mary
+D, [2023-01-25T20:38:12.289787 #172] DEBUG -- : {
+  "path": "/alligators/Mary",
+  "query": "",
+  "method": "get",
+  "headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+    "User-Agent": "Ruby",
+    "Connection": "close",
+    "Host": "localhost:1234",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2023-01-25T20:38:12.290210 #172]  INFO -- : Found matching response for GET /alligators/Mary
+D, [2023-01-25T20:38:12.290594 #172] DEBUG -- : {
+  "status": 200,
+  "headers": {
+    "Content-Type": "application/json;charset=utf-8"
+  },
+  "body": {
+    "name": "Mary"
+  }
+}
+I, [2023-01-25T20:38:12.293344 #172]  INFO -- : Verifying - interactions matched for example "ZooApp::AnimalServiceClient.find_alligator_by_name when an alligator by the given name exists returns the alligator"
+I, [2023-01-25T20:38:12.295257 #172]  INFO -- : Cleared interactions for example "ZooApp::AnimalServiceClient.find_alligator_by_name when an alligator by the given name does not exist returns nil"
+I, [2023-01-25T20:38:12.296491 #172]  INFO -- : Registered expected interaction GET /alligators/Mary
+D, [2023-01-25T20:38:12.296882 #172] DEBUG -- : {
+  "description": "a request for an alligator",
+  "providerState": "there is not an alligator named Mary",
+  "request": {
+    "method": "get",
+    "path": "/alligators/Mary",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 404,
+    "headers": {
+    }
+  },
+  "metadata": null
+}
+I, [2023-01-25T20:38:12.298016 #172]  INFO -- : Received request GET /alligators/Mary
+D, [2023-01-25T20:38:12.298412 #172] DEBUG -- : {
+  "path": "/alligators/Mary",
+  "query": "",
+  "method": "get",
+  "headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+    "User-Agent": "Ruby",
+    "Connection": "close",
+    "Host": "localhost:1234",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2023-01-25T20:38:12.298841 #172]  INFO -- : Found matching response for GET /alligators/Mary
+D, [2023-01-25T20:38:12.299237 #172] DEBUG -- : {
+  "status": 404,
+  "headers": {
+  }
+}
+I, [2023-01-25T20:38:12.302560 #172]  INFO -- : Verifying - interactions matched for example "ZooApp::AnimalServiceClient.find_alligator_by_name when an alligator by the given name does not exist returns nil"
+I, [2023-01-25T20:38:12.304642 #172]  INFO -- : Cleared interactions for example "ZooApp::AnimalServiceClient.find_alligator_by_name when an error occurs retrieving the alligator raises an error"
+I, [2023-01-25T20:38:12.306941 #172]  INFO -- : Registered expected interaction GET /alligators/Mary
+D, [2023-01-25T20:38:12.307406 #172] DEBUG -- : {
+  "description": "a request for an alligator",
+  "providerState": "an error occurs retrieving an alligator",
+  "request": {
+    "method": "get",
+    "path": "/alligators/Mary",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 500,
+    "headers": {
+      "Content-Type": "application/json;charset=utf-8"
+    },
+    "body": {
+      "error": "Argh!!!"
+    }
+  },
+  "metadata": null
+}
+I, [2023-01-25T20:38:12.310194 #172]  INFO -- : Received request GET /alligators/Mary
+D, [2023-01-25T20:38:12.310580 #172] DEBUG -- : {
+  "path": "/alligators/Mary",
+  "query": "",
+  "method": "get",
+  "headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+    "User-Agent": "Ruby",
+    "Connection": "close",
+    "Host": "localhost:1234",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2023-01-25T20:38:12.311419 #172]  INFO -- : Found matching response for GET /alligators/Mary
+D, [2023-01-25T20:38:12.311874 #172] DEBUG -- : {
+  "status": 500,
+  "headers": {
+    "Content-Type": "application/json;charset=utf-8"
+  },
+  "body": {
+    "error": "Argh!!!"
+  }
+}
+I, [2023-01-25T20:38:12.313402 #172]  INFO -- : Verifying - interactions matched for example "ZooApp::AnimalServiceClient.find_alligator_by_name when an error occurs retrieving the alligator raises an error"
+I, [2023-01-25T20:38:12.314836 #172]  INFO -- : Writing pact for Animal Service to /app/zoo-app/spec/pacts/zoo_app-animal_service.json
