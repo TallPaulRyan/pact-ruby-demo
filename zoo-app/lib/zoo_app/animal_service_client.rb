@@ -14,6 +14,15 @@ module ZooApp
       end
     end
 
+    def self.find_seahawk_by_name(name)
+      response = get("/seahawks/#{name}", :headers => {'Accept' => 'application/json'})
+      when_sucessful(resposne) do
+        ZooApp::Animals::Seahawk.new(parse_body(response))
+      end
+    end
+
+
+
     def self.when_successful response
       if response.success?
         yield
