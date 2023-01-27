@@ -4,7 +4,7 @@ group :development, :test do
   gem 'rspec'
   gem 'pact'
   gem 'pact_broker-client'
-  gem "pry-byebug"
+  gem 'pry-nav'
 end
 
 gem 'rake'
