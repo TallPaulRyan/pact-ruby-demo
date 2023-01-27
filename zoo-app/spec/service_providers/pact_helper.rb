@@ -1,4 +1,3 @@
-require_relative '../spec_helper'
 require 'pact/consumer/rspec'
 
 Pact.configure do | config |

@@ -1,10 +1,13 @@
+require_relative "./provider_states_for_zoo_app"
+
 Pact.service_provider "Animal Service" do
   honours_pacts_from_pact_broker do
     # Base URL of pact broker is mandatory
     # basic auth username/password and token are optional parameters
     pact_broker_base_url 'http://pact-ruby-demo-pact-broker-1:9292'
-    # verbose false # Set this to true to see the HTTP requests and responses logged
-
+    verbose true # Set this to true to see the HTTP requests and responses logged
+    publish_verification_results true
+    app_version "1.0.0"
     # Specify the consumer version tags for the pacts you want to verify
     # Simple config - a list of tag names
     # This will verify the latest pact with the tag `dev` and the latest pact with the tag `prod`
@@ -27,19 +30,6 @@ Pact.service_provider "Animal Service" do
     #       { tag: ENV['GIT_BRANCH'], fallback_tag: 'main', latest: true }, 
     #       { tag: 'prod', latest: true }
     #      ]
-
-    # Advanced configuration - OLD SYNTAX
-    # name: name of the tag
-    # all: it takes the boolean value true|false. Optional. Defaults to false.
-    #      To fetch all the pacts for a tag, set it to true.
-    #      To fetch only the latest pact, set it to false.
-    # fallback: In case, the tag does not exist, it will fetch pacts for the fallback-tag. This is an optional
-    #           parameter.
-    # Requires pact gem version v1.28.0+
-    # This format is supported, but it is preferrable to use the consumer_version_selectors
-    # There was a regression sometime between v1.42.0 and v1.56.0 where the consumer_version_tags were not mapped correctly to the new selectors
-    # If you have issues, please upgrade to the latest version of the pact gem.
-    # consumer_version_tags [{name: 'tag-name', all: false, fallback: 'fallback-tag-name'}]
     
     # enable_pending true # See docs below
     # include_wip_pacts_since "2020-01-01" # See docs below

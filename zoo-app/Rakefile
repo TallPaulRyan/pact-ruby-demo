@@ -8,8 +8,7 @@ RSpec::Core::RakeTask.new(:spec)
 PactBroker::Client::PublicationTask.new do | task |
   require 'zoo_app/version'
   task.consumer_version = ZooApp::VERSION
-  # task.pact_broker_base_url = "http://localhost:9292"
-  task.pact_broker_base_url = "http://pact-ruby-demo-pact-broker-1:9292"
+  task.pact_broker_base_url = 'http://pact-ruby-demo-pact-broker-1:9292'
 end
 
 task :default => :spec
