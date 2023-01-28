@@ -66,6 +66,28 @@ module ZooApp
         end
 
       end
+
+      describe ".find_seahawk_by_name" do
+        context "when an seahawk by the given name exists" do
+  
+          before do
+            animal_service.given("there is an seahawk named Geno").
+              upon_receiving("a request for an seahawk").with(
+                method: :get,
+                path: '/seahawks/Geno',
+                headers: {'Accept' => 'application/json'} ).
+              will_respond_with(
+                status: 200,
+                headers: {'Content-Type' => 'application/json;charset=utf-8'},
+                body: {name: 'Geno'}
+              )
+          end
+  
+          it "returns the alligator" do
+            expect(AnimalServiceClient.find_seahawk_by_name("Geno")).to eq ZooApp::Animals::Seahawk.new(name: 'Geno')
+          end
+        end
+      end
     end
   end
 end

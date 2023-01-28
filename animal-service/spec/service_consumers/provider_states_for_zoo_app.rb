@@ -23,4 +23,8 @@ Pact.provider_states_for "Zoo App" do
       allow(AnimalService::AnimalRepository).to receive(:find_alligator_by_name).and_raise("Argh!!!")
     end
   end
+
+  provider_state "there is a seahawk named Geno" do
+    no_op
+  end
 end

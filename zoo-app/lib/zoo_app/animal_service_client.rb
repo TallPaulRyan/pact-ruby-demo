@@ -1,5 +1,6 @@
 require 'httparty'
 require 'zoo_app/models/alligator'
+require 'zoo_app/models/seahawk'
 
 module ZooApp
   class AnimalServiceClient
@@ -16,7 +17,7 @@ module ZooApp
 
     def self.find_seahawk_by_name(name)
       response = get("/seahawks/#{name}", :headers => {'Accept' => 'application/json'})
-      when_sucessful(resposne) do
+      when_successful(response) do
         ZooApp::Animals::Seahawk.new(parse_body(response))
       end
     end

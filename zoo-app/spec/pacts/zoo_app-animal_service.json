@@ -61,6 +61,26 @@
           "error": "Argh!!!"
         }
       }
+    },
+    {
+      "description": "a request for an seahawk",
+      "providerState": "there is an seahawk named Geno",
+      "request": {
+        "method": "get",
+        "path": "/seahawks/Geno",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json;charset=utf-8"
+        },
+        "body": {
+          "name": "Geno"
+        }
+      }
     }
   ],
   "metadata": {

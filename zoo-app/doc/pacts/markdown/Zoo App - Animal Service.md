@@ -8,6 +8,8 @@
 
 * [A request for an alligator](#a_request_for_an_alligator_given_an_error_occurs_retrieving_an_alligator) given an error occurs retrieving an alligator
 
+* [A request for an seahawk](#a_request_for_an_seahawk_given_there_is_an_seahawk_named_Geno) given there is an seahawk named Geno
+
 #### Interactions
 
 <a name="a_request_for_an_alligator_given_there_is_an_alligator_named_Mary"></a>
@@ -70,6 +72,29 @@ Animal Service will respond with:
   },
   "body": {
     "error": "Argh!!!"
+  }
+}
+```
+<a name="a_request_for_an_seahawk_given_there_is_an_seahawk_named_Geno"></a>
+Given **there is an seahawk named Geno**, upon receiving **a request for an seahawk** from Zoo App, with
+```json
+{
+  "method": "get",
+  "path": "/seahawks/Geno",
+  "headers": {
+    "Accept": "application/json"
+  }
+}
+```
+Animal Service will respond with:
+```json
+{
+  "status": 200,
+  "headers": {
+    "Content-Type": "application/json;charset=utf-8"
+  },
+  "body": {
+    "name": "Geno"
   }
 }
 ```
