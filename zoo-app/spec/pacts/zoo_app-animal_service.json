@@ -63,8 +63,8 @@
       }
     },
     {
-      "description": "a request for an seahawk",
-      "providerState": "there is an seahawk named Geno",
+      "description": "a request for a seahawk",
+      "providerState": "there is a seahawk named Geno",
       "request": {
         "method": "get",
         "path": "/seahawks/Geno",
@@ -79,6 +79,22 @@
         },
         "body": {
           "name": "Geno"
+        }
+      }
+    },
+    {
+      "description": "a request for a seahawk",
+      "providerState": "there is not a seahawk named Mary",
+      "request": {
+        "method": "get",
+        "path": "/seahawks/Geno",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
         }
       }
     }

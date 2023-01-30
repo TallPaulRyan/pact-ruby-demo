@@ -25,5 +25,14 @@ module AnimalService
       end
     end
 
+    get '/seahawks/:name' do
+      if (seahawk = AnimalRepository.find_seahawk_by_name(params[:name]))
+        content_type :json, :charset => 'utf-8'
+        seahawk.to_json
+      else
+        status 404
+      end
+    end
+
   end
 end

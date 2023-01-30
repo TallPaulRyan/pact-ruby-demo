@@ -66,26 +66,42 @@ module ZooApp
         end
 
       end
+    end
 
-      describe ".find_seahawk_by_name" do
-        context "when an seahawk by the given name exists" do
-  
-          before do
-            animal_service.given("there is an seahawk named Geno").
-              upon_receiving("a request for an seahawk").with(
-                method: :get,
-                path: '/seahawks/Geno',
-                headers: {'Accept' => 'application/json'} ).
-              will_respond_with(
-                status: 200,
-                headers: {'Content-Type' => 'application/json;charset=utf-8'},
-                body: {name: 'Geno'}
-              )
-          end
-  
-          it "returns the alligator" do
-            expect(AnimalServiceClient.find_seahawk_by_name("Geno")).to eq ZooApp::Animals::Seahawk.new(name: 'Geno')
-          end
+    describe ".find_seahawk_by_name" do
+      context "when a seahawk by the given name exists" do
+
+        before do
+          animal_service.given("there is a seahawk named Geno").
+            upon_receiving("a request for a seahawk").with(
+              method: :get,
+              path: '/seahawks/Geno',
+              headers: {'Accept' => 'application/json'} ).
+            will_respond_with(
+              status: 200,
+              headers: {'Content-Type' => 'application/json;charset=utf-8'},
+              body: {name: 'Geno'}
+            )
+        end
+
+        it "returns the seahawk" do
+          expect(AnimalServiceClient.find_seahawk_by_name("Geno")).to eq ZooApp::Animals::Seahawk.new(name: 'Geno')
+        end
+      end
+
+      context "when a seahawk by the given name does not exist" do
+
+        before do
+          animal_service.given("there is not a seahawk named Mary").
+            upon_receiving("a request for a seahawk").with(
+              method: :get,
+              path: '/seahawks/Geno',
+              headers: {'Accept' => 'application/json'} ).
+            will_respond_with(status: 404)
+        end
+
+        it "returns nil" do
+          expect(AnimalServiceClient.find_seahawk_by_name("Geno")).to be_nil
         end
       end
     end

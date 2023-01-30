@@ -8,5 +8,9 @@ module AnimalService
       DATABASE[:animals].where(name: name).single_record
     end
 
+    def self.find_seahawk_by_name(name)
+      DATABASE[:animals].where(name: name).single_record
+    end
+
   end
 end
